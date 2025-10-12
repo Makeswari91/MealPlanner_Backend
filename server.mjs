@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import {globalErr, log} from './middleware/middleware.mjs';
 import connectDB from './db/conn.mjs';
 import userRoute from './routes/userRoute.mjs';
+import RecipeRoute from './routes/recipeRoute.mjs';
 
 //setups
 dotenv.config();
@@ -19,6 +20,7 @@ connectDB();
 
 // Routes
 app.use("/api/users", userRoute);
+app.use("/api/recipe", RecipeRoute);
 
 //Err Handling
  app.use(globalErr);
