@@ -7,3 +7,9 @@
 - `$npm init -y`
 - `npm i express mongoose dotenv`
 - `npm install --save-dev nodemon`
+
+## CRUD Routes ##
+- User - Stores user credentials, preferences, and saved data
+- Recipe - Contains recipe details: ingredients, instructions, tags, nutrition info
+- Meal Plan - Weekly plan linking recipes to specific days and meals
+- Grocery List - Auto-generated list of ingredients based on selected meal plan
