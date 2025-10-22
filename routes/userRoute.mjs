@@ -1,5 +1,6 @@
 import express from 'express';
 import User from '../schemas/userSchema.mjs';
+import auth from "../middleware/basicAuth.mjs";
 
 const router = express.Router();
 
@@ -27,6 +28,22 @@ router
         } catch (err) {
             console.error(err.message);
             res.status(500).json({ msg: `Error - ${err.message}` });
+        }
+    });
+
+
+// GET Authenticated User
+router
+    .get("/me", auth, async (req, res) => {
+        try {
+            const user = await User.findById(req.user.id).select("-password");
+            if (!user) {
+                return res.status(404).json({ msg: "User not found" });
+            }
+            res.json(user);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).json({ msg: "Server Error" });
         }
     });
 
