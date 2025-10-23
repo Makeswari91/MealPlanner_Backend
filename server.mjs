@@ -13,7 +13,7 @@ import cors from "cors";
 
 
 //setups
-dotenv.config();
+dotenv.config();     
 const app = express();  
 const PORT = process.env.PORT || 3001;
 
