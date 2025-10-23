@@ -32,18 +32,21 @@ loginUser.route('/')
 
                 let user = await User.findOne({ email });
 
+
                 if (!user) {
                     return res
                         .status(400)
-                        .json({ errors: [{ msg: "Invalid Credentials" }] });
+                        .json({ errors: [{ msg: "user not found" }] });
                 }
 
                 const isMatch = await bcrypt.compare(password, user.password);
 
-                if (!isMatch) {
+                console.log(password, user.password)
+
+                if (password != user.password) {
                     return res
                         .status(400)
-                        .json({ errors: [{ msg: "Invalid Credentials" }] });
+                        .json({ errors: [{ msg: "password doesnt match" }] });
                 }
 
                 const payload = {

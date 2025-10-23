@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
     id: {
         type: Number,
-        required: true,
         unique: true
     },
     name: {
@@ -23,6 +22,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    isAdmin:{
+        type: Boolean,
+        default: false
+    }
 }, { timestamps: true });
 
 export default mongoose.model('User', userSchema);

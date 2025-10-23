@@ -12,7 +12,7 @@ const registerUser = express.Router();
 registerUser.route('/')
     .post(
         [
-            check("userName", "Please include a valid username").isLength({ min: 4 }),
+            check("name", "Please include a valid username").isLength({ min: 4 }),
             check("password", "Password must be at least 6 characters long").isLength(
                 { min: 6 }
             ),
@@ -38,8 +38,7 @@ registerUser.route('/')
                 user = new User({
                     name,
                     email,
-                    password,
-                    wrongQuestions: [],
+                    password
                 });
 
                 const salt = await bcrypt.genSalt(10);
