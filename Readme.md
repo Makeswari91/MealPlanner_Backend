@@ -15,6 +15,26 @@
 - Recipe - Contains recipe details: ingredients, instructions, tags, nutrition info
 - Meal Plan - Weekly plan linking recipes to specific days and meals
 
+# Users
+POST /api/users → Register
+POST /api/login → Login
+GET /api/users/:id → Get user profile
+PUT /api/users/:id → Update profile
+DELETE /api/users/:id → Delete account
+
+# Recipes
+GET /api/recipes → Get all recipes
+GET /api/recipes/:id → Get recipe by ID
+POST /api/recipes → Create recipe
+PUT /api/recipes/:id → Update recipe
+DELETE /api/recipes/:id → Delete recipe
+
+# Meal Plans
+GET /api/mealplans/:userId → Get user’s meal plans
+POST /api/mealplans → Create meal plan
+PUT /api/mealplans/:id → Update meal plan
+DELETE /api/mealplans/:id → Delete meal plan
+
 ## GitHub Frontend ##
 
 `https://github.com/Makeswari91/MealPlanner_Frontend.git`
